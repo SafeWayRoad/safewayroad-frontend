@@ -1,0 +1,18 @@
+{
+  "app_name": "SafeWayRoad",
+  "nav": {
+    "map": "Carte",
+    "report": "Signaler",
+    "plan_trip": "Planifier un trajet",
+    "profile": "Profil"
+  },
+  "language": {
+    "label": "Langue",
+    "en": "English",
+    "fr": "Français"
+  },
+  "errors": {
+    "generic": "Une erreur est survenue. Merci de réessayer.",
+    "offline": "Vous êtes hors ligne — ce sera envoyé dès le retour de la connexion."
+  }
+}

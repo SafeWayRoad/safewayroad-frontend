@@ -1,0 +1,10 @@
+{
+  "report_incident": "Report an incident",
+  "types": {
+    "accident": "Accident",
+    "breakdown": "Breakdown",
+    "obstacle": "Obstacle",
+    "insecurity": "Insecurity",
+    "medical_emergency": "Medical emergency"
+  }
+}

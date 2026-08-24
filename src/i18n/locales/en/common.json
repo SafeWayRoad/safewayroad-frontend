@@ -1,0 +1,18 @@
+{
+  "app_name": "SafeWayRoad",
+  "nav": {
+    "map": "Map",
+    "report": "Report",
+    "plan_trip": "Plan a trip",
+    "profile": "Profile"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "fr": "Français"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "offline": "You're offline — this will be sent once you're back online."
+  }
+}
