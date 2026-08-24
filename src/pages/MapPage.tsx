@@ -1,12 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { MapView } from "@/shared/components/MapView";
 
-// Placeholder for Phase 2 task #2 — MapLibre GL JS + MapTiler tiles,
-// active-incident markers from GET /incidents, filtering by axis.
+// Base map for Phase 2 task #0 (coquille PWA). Task #2 layers active-incident
+// markers (GET /incidents) and axis filtering (N1/N3/N4) on top of this.
 export function MapPage() {
-  const { t } = useTranslation();
-  return (
-    <div className="flex h-full items-center justify-center text-slate-500">
-      {t("nav.map")} — {t("app_name")}
-    </div>
-  );
+  return <MapView className="h-full w-full" />;
 }
