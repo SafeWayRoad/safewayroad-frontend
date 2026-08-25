@@ -24,6 +24,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 - Validation Zod des variables d'environnement `VITE_*` (`shared/config/env.ts`), même pattern que
   le backend
 - Alias d'import `@/` (cohérent entre `vite.config.ts` et `tsconfig.app.json`)
+- Formulaire de signalement d'incident (`ReportIncidentPage.tsx`) : géolocalisation navigateur ou
+  sélection manuelle sur carte, type/sens/état de la voie, photo compressée côté client
+  (redimensionnement + réencodage JPEG via Canvas), soumission vers `POST /incidents`
+- `MapView.tsx` étendu : marqueur contrôlé et gestionnaire de clic (`onClick`), réutilisable pour
+  toute future sélection de position sur carte (ex. planification de trajet, tâche #3)
 
 ### Vérifié
 
