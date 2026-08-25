@@ -6,5 +6,31 @@
     "obstacle": "Obstacle",
     "insecurity": "Insecurity",
     "medical_emergency": "Medical emergency"
+  },
+  "directions": {
+    "outbound": "Outbound",
+    "return": "Return",
+    "both": "Both directions"
+  },
+  "road_statuses": {
+    "blocked": "Blocked",
+    "partial": "Partially blocked",
+    "clear": "Clear"
+  },
+  "form": {
+    "position": "Position",
+    "use_my_location": "Use my location",
+    "or_tap_map": "or tap the map to set the position manually",
+    "position_required": "Please set a position before submitting",
+    "geolocation_unsupported": "Geolocation isn't supported on this device — tap the map instead",
+    "geolocation_denied": "Location access denied — tap the map to set the position manually",
+    "incident_type": "Incident type",
+    "direction": "Direction",
+    "road_status": "Road status",
+    "photo": "Photo (optional)",
+    "photo_hint": "The photo is compressed automatically before sending",
+    "submit": "Report incident",
+    "submitting": "Sending…",
+    "success": "Incident reported — thank you"
   }
 }
