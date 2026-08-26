@@ -32,5 +32,20 @@
     "submit": "Report incident",
     "submitting": "Sending…",
     "success": "Incident reported — thank you"
+  },
+  "filters": {
+    "all_axes": "All axes",
+    "loading": "Loading…",
+    "error": "Couldn't load incidents"
+  },
+  "detail": {
+    "close": "Close"
+  },
+  "age": {
+    "just_now": "Reported just now",
+    "hours_one": "Reported {{count}} hour ago",
+    "hours_other": "Reported {{count}} hours ago",
+    "days_one": "Reported {{count}} day ago",
+    "days_other": "Reported {{count}} days ago"
   }
 }
