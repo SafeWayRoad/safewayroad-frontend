@@ -5,9 +5,11 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import commonEn from "./locales/en/common.json";
 import incidentsEn from "./locales/en/incidents.json";
 import itineraryEn from "./locales/en/itinerary.json";
+import authEn from "./locales/en/auth.json";
 import commonFr from "./locales/fr/common.json";
 import incidentsFr from "./locales/fr/incidents.json";
 import itineraryFr from "./locales/fr/itinerary.json";
+import authFr from "./locales/fr/auth.json";
 
 // Namespaces are split by functional domain (mirrors the backend module
 // split: incidents, itineraries...) so each Phase 2 task only touches its
@@ -19,12 +21,22 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { common: commonEn, incidents: incidentsEn, itinerary: itineraryEn },
-      fr: { common: commonFr, incidents: incidentsFr, itinerary: itineraryFr },
+      en: {
+        common: commonEn,
+        incidents: incidentsEn,
+        itinerary: itineraryEn,
+        auth: authEn,
+      },
+      fr: {
+        common: commonFr,
+        incidents: incidentsFr,
+        itinerary: itineraryFr,
+        auth: authFr,
+      },
     },
     fallbackLng: "en",
     supportedLngs: ["en", "fr"],
-    ns: ["common", "incidents", "itinerary"],
+    ns: ["common", "incidents", "itinerary", "auth"],
     defaultNS: "common",
     interpolation: { escapeValue: false }, // React already escapes output
     detection: {
