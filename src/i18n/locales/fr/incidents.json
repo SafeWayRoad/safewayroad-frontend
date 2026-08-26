@@ -32,5 +32,20 @@
     "submit": "Signaler l'incident",
     "submitting": "Envoi…",
     "success": "Incident signalé — merci"
+  },
+  "filters": {
+    "all_axes": "Tous les axes",
+    "loading": "Chargement…",
+    "error": "Impossible de charger les incidents"
+  },
+  "detail": {
+    "close": "Fermer"
+  },
+  "age": {
+    "just_now": "Signalé à l'instant",
+    "hours_one": "Signalé il y a {{count}} heure",
+    "hours_other": "Signalé il y a {{count}} heures",
+    "days_one": "Signalé il y a {{count}} jour",
+    "days_other": "Signalé il y a {{count}} jours"
   }
 }

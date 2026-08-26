@@ -29,6 +29,13 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   (redimensionnement + réencodage JPEG via Canvas), soumission vers `POST /incidents`
 - `MapView.tsx` étendu : marqueur contrôlé et gestionnaire de clic (`onClick`), réutilisable pour
   toute future sélection de position sur carte (ex. planification de trajet, tâche #3)
+  - Carte publique des incidents actifs (`MapPage.tsx`) : marqueurs colorés par état de la voie,
+    filtrage par axe (N1/N3/N4) appliqué côté serveur, fiche détaillée au clic (type, axe, PK, sens,
+    ancienneté, photo)
+- `MapView.tsx` étendu : support de plusieurs marqueurs cliquables (`markers`), en plus du
+  marqueur unique déjà utilisé par le formulaire de signalement
+- `shared/api/incidents.ts` : client pour `GET /incidents`, réutilisable pour la planification de
+  trajet (tâche #3) et la confirmation communautaire (tâche #4)
 
 ### Vérifié
 
