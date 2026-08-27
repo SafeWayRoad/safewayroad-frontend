@@ -1,7 +1,15 @@
 {
+  "plan_trip_heading": "Plan a trip",
   "origin": "Starting point",
   "destination": "Destination",
+  "select_points_hint": "Tap the map to set each point",
   "calculate": "Calculate route",
+  "calculating": "Calculating…",
+  "origin_destination_required": "Please set both a starting point and a destination",
+  "error_generic": "Something went wrong — please try again",
   "start_trip": "Start trip",
-  "save_favorite": "Save as favorite"
+  "save_favorite": "Save as favorite",
+  "already_favorite": "Already a favorite",
+  "login_required": "You need an account to plan and save a trip.",
+  "go_to_login": "Log in or create an account"
 }

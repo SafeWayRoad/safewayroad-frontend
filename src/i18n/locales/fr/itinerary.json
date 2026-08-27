@@ -1,7 +1,15 @@
 {
+  "plan_trip_heading": "Planifier un trajet",
   "origin": "Point de départ",
   "destination": "Destination",
+  "select_points_hint": "Touchez la carte pour définir chaque point",
   "calculate": "Calculer l'itinéraire",
+  "calculating": "Calcul en cours…",
+  "origin_destination_required": "Merci de définir un point de départ et une destination",
+  "error_generic": "Une erreur est survenue — merci de réessayer",
   "start_trip": "Démarrer le trajet",
-  "save_favorite": "Enregistrer en favori"
+  "save_favorite": "Enregistrer en favori",
+  "already_favorite": "Déjà en favori",
+  "login_required": "Un compte est nécessaire pour planifier et enregistrer un trajet.",
+  "go_to_login": "Se connecter ou créer un compte"
 }
