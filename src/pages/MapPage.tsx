@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { MapView, type IncidentMarkerData } from "@/shared/components/MapView";
 import { IncidentDetailCard } from "@/shared/components/IncidentDetailCard";
@@ -18,6 +18,7 @@ const filterButtonClass = (active: boolean) =>
 // pkStart/pkEnd (cf. backend issues #7-#8) — no client-side id lookup needed.
 export function MapPage() {
   const { t } = useTranslation("incidents");
+  const queryClient = useQueryClient();
   const [axisFilter, setAxisFilter] = useState<string | null>(null);
   const [selectedIncidentId, setSelectedIncidentId] = useState<string | null>(
     null,
@@ -79,6 +80,13 @@ export function MapPage() {
           <IncidentDetailCard
             incident={selectedIncident}
             onClose={() => setSelectedIncidentId(null)}
+            onConfirmed={() => {
+              // A CLEARED confirmation may resolve the incident server-side
+              // (cf. CLEARED_RESOLUTION_THRESHOLD) — refetch so it drops out
+              // of the ACTIVE list rather than lingering stale on the map.
+              queryClient.invalidateQueries({ queryKey: ["incidents"] });
+              setSelectedIncidentId(null);
+            }}
             className="absolute bottom-4 left-4 right-4 max-w-sm rounded-lg border border-slate-200 bg-white p-4 shadow-lg md:right-auto"
           />
         )}

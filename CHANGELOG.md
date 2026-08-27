@@ -51,6 +51,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 - Extraction en commun de `ROAD_STATUS_COLORS`, `formatIncidentAge` et `IncidentDetailCard`
   (auparavant dupliqués dans `MapPage.tsx`) — réutilisés par la carte publique et la planification
   de trajet, prêts pour la confirmation communautaire (tâche #4)
+  - Confirmation communautaire intégrée à `IncidentDetailCard.tsx` (partagée entre la carte publique
+    et la planification de trajet) : boutons "toujours là"/"dégagé" vers
+    POST /incidents/{id}/confirmations, mise en évidence visuelle au-delà de 24h sans résolution
+    (cahier des charges §4.4)
+- `format-incident-age.ts` : ajout de `isIncidentStale` (seuil d'alerte 24h)
 
 ### Vérifié
 

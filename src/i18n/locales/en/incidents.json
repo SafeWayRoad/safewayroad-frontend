@@ -39,7 +39,12 @@
     "error": "Couldn't load incidents"
   },
   "detail": {
-    "close": "Close"
+    "close": "Close",
+    "stale_warning": "Needs attention",
+    "confirm_still_there": "Still there",
+    "confirm_cleared": "Cleared",
+    "confirm_success": "Thanks for confirming",
+    "confirm_error": "Couldn't send your confirmation"
   },
   "age": {
     "just_now": "Reported just now",

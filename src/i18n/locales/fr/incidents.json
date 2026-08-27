@@ -39,7 +39,12 @@
     "error": "Impossible de charger les incidents"
   },
   "detail": {
-    "close": "Fermer"
+    "close": "Fermer",
+    "stale_warning": "Nécessite une attention",
+    "confirm_still_there": "Toujours là",
+    "confirm_cleared": "Dégagé",
+    "confirm_success": "Merci pour votre confirmation",
+    "confirm_error": "Impossible d'envoyer votre confirmation"
   },
   "age": {
     "just_now": "Signalé à l'instant",
