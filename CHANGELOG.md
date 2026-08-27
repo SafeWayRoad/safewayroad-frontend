@@ -44,6 +44,13 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   pour les futurs appels authentifiés (POST /itineraries, tâche #3)
 - Nav shell (`Layout.tsx`) : affichage de l'état connecté/déconnecté, bouton de déconnexion
 - Nouveau namespace i18n `auth` (EN/FR)
+- UI de planification de trajet (`PlanTripPage.tsx`) : sélection départ/arrivée sur la carte,
+  calcul via POST /itineraries, tracé et incidents superposés affichés, sauvegarde en favori.
+  Nécessite un compte (redirection vers /login sinon)
+- `MapView.tsx` étendu : rendu d'un tracé GeoJSON (`route`) avec ajustement automatique du zoom
+- Extraction en commun de `ROAD_STATUS_COLORS`, `formatIncidentAge` et `IncidentDetailCard`
+  (auparavant dupliqués dans `MapPage.tsx`) — réutilisés par la carte publique et la planification
+  de trajet, prêts pour la confirmation communautaire (tâche #4)
 
 ### Vérifié
 
