@@ -36,6 +36,14 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   marqueur unique déjà utilisé par le formulaire de signalement
 - `shared/api/incidents.ts` : client pour `GET /incidents`, réutilisable pour la planification de
   trajet (tâche #3) et la confirmation communautaire (tâche #4)
+- UI d'authentification (`AuthPage.tsx`) : connexion et inscription sur un seul écran (bascule
+  onglet), branchée sur POST /auth/login et POST /auth/register (déjà livrés en Phase 1)
+- Store d'authentification (`auth.store.ts`, Zustand + persist localStorage) : token d'accès,
+  refresh token et utilisateur courant, persistés entre les sessions
+- `auth-fetch.ts` : wrapper fetch attachant automatiquement l'en-tête Authorization — réutilisable
+  pour les futurs appels authentifiés (POST /itineraries, tâche #3)
+- Nav shell (`Layout.tsx`) : affichage de l'état connecté/déconnecté, bouton de déconnexion
+- Nouveau namespace i18n `auth` (EN/FR)
 
 ### Vérifié
 

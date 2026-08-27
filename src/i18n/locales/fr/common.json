@@ -4,7 +4,9 @@
     "map": "Carte",
     "report": "Signaler",
     "plan_trip": "Planifier un trajet",
-    "profile": "Profil"
+    "profile": "Profil",
+    "login": "Se connecter",
+    "logout": "Se déconnecter"
   },
   "language": {
     "label": "Langue",

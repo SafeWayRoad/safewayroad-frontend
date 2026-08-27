@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useAuthStore } from "@/shared/store/auth.store";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `px-3 py-2 text-sm font-medium ${isActive ? "text-slate-900" : "text-slate-500 hover:text-slate-700"}`;
@@ -11,6 +12,8 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 // incident cards) to design around, not an empty shell.
 export function Layout() {
   const { t } = useTranslation();
+  const user = useAuthStore((state) => state.user);
+  const clearAuth = useAuthStore((state) => state.clearAuth);
 
   return (
     <div className="flex h-dvh flex-col">
@@ -27,7 +30,21 @@ export function Layout() {
             {t("nav.plan_trip")}
           </NavLink>
         </nav>
-        <LanguageSwitcher />
+        <div className="flex items-center gap-3">
+          {user ? (
+            <button
+              onClick={clearAuth}
+              className="text-sm text-slate-500 hover:text-slate-700"
+            >
+              {t("nav.logout")}
+            </button>
+          ) : (
+            <NavLink to="/login" className={navLinkClass}>
+              {t("nav.login")}
+            </NavLink>
+          )}
+          <LanguageSwitcher />
+        </div>
       </header>
       <main className="flex-1 overflow-hidden">
         <Outlet />
