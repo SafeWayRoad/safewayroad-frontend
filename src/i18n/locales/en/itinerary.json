@@ -1,5 +1,8 @@
 {
   "plan_trip_heading": "Plan a trip",
+  "trip_name": "Trip name",
+  "trip_name_placeholder": "e.g. Home – Work",
+  "trip_name_required": "Please name your trip before calculating",
   "origin": "Starting point",
   "destination": "Destination",
   "select_points_hint": "Tap the map to set each point",

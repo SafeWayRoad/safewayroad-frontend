@@ -19,10 +19,14 @@ const pickButtonClass = (active: boolean) =>
 
 // Phase 2 task #3. POST /itineraries requires an account (Itinerary.userId
 // is non-nullable) — the auth UI (prerequisite task) is already merged.
+// name is required by the backend since the 28/08/2026 decision (anticipates
+// Phase 3 trip assignment) — collected here before the itinerary is created,
+// not patched in afterward.
 export function PlanTripPage() {
   const { t } = useTranslation("itinerary");
   const user = useAuthStore((state) => state.user);
 
+  const [tripName, setTripName] = useState("");
   const [selectingField, setSelectingField] =
     useState<SelectingField>("origin");
   const [origin, setOrigin] = useState<{ lat: number; lng: number } | null>(
@@ -39,10 +43,14 @@ export function PlanTripPage() {
 
   const calculateMutation = useMutation({
     mutationFn: async () => {
+      if (!tripName.trim()) {
+        throw new Error(t("trip_name_required"));
+      }
       if (!origin || !destination) {
         throw new Error(t("origin_destination_required"));
       }
       return createItinerary({
+        name: tripName.trim(),
         origin: { latitude: origin.lat, longitude: origin.lng },
         destination: { latitude: destination.lat, longitude: destination.lng },
       });
@@ -112,6 +120,18 @@ export function PlanTripPage() {
       <div className="flex w-full flex-col gap-4 md:w-96 md:shrink-0">
         <h1 className="text-lg font-semibold">{t("plan_trip_heading")}</h1>
 
+        <label className="flex flex-col gap-1">
+          <span className="text-sm font-medium">{t("trip_name")}</span>
+          <input
+            type="text"
+            value={tripName}
+            onChange={(event) => setTripName(event.target.value)}
+            placeholder={t("trip_name_placeholder")}
+            maxLength={120}
+            className="rounded border border-slate-300 px-2 py-1.5 text-sm"
+          />
+        </label>
+
         <div className="flex flex-col gap-2">
           <span className="text-sm font-medium">{t("select_points_hint")}</span>
           <div className="flex gap-2">
@@ -136,7 +156,12 @@ export function PlanTripPage() {
 
         <button
           type="button"
-          disabled={!origin || !destination || calculateMutation.isPending}
+          disabled={
+            !tripName.trim() ||
+            !origin ||
+            !destination ||
+            calculateMutation.isPending
+          }
           onClick={() => calculateMutation.mutate()}
           className="rounded bg-red-600 px-3 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
         >

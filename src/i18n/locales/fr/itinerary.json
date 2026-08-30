@@ -1,5 +1,8 @@
 {
   "plan_trip_heading": "Planifier un trajet",
+  "trip_name": "Nom du trajet",
+  "trip_name_placeholder": "ex. Domicile – Travail",
+  "trip_name_required": "Merci de nommer votre trajet avant de calculer",
   "origin": "Point de départ",
   "destination": "Destination",
   "select_points_hint": "Touchez la carte pour définir chaque point",
