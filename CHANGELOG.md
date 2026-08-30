@@ -61,6 +61,10 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 - Validation Zod des variables d'environnement `VITE_*` (`shared/config/env.ts`), même pattern que
   le backend
 - Alias d'import `@/` (cohérent entre `vite.config.ts` et `tsconfig.app.json`)
+- Connexion Google (`GoogleLogin`, `@react-oauth/google`) : bouton unique visible sur les onglets
+  connexion et inscription, `POST /auth/google` (backend issue #15)
+- Input téléphone international (`react-phone-number-input`), Cameroun pré-sélectionné, format
+  E.164 — remplace le champ texte simple
 
 ### Vérifié
 

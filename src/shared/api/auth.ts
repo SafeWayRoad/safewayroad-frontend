@@ -55,3 +55,12 @@ export function register(input: RegisterInput) {
 export function refreshAccessToken(refreshToken: string) {
   return postJson<AuthResult>("/auth/refresh", { refreshToken });
 }
+
+/**
+ * Signs in (or silently signs up) via Google — cf. backend POST /auth/google.
+ * idToken comes from the GoogleLogin component (@react-oauth/google), never
+ * a password.
+ */
+export function loginWithGoogle(idToken: string) {
+  return postJson<AuthResult>("/auth/google", { idToken });
+}
