@@ -9,21 +9,6 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
-### Ajouté
-
-- Scaffold initial : Vite + React 19 + TypeScript
-- `vite-plugin-pwa` configuré (manifest, cache-first sur les tuiles MapTiler, `devOptions` activé
-  pour inspection du service worker en développement)
-- Tailwind CSS v4 (via `@tailwindcss/vite`, pas de fichier de config séparé)
-- Internationalisation (`react-i18next`) : anglais par défaut, bascule français, namespaces
-  `common`/`incidents`/`itinerary` alignés sur les modules backend
-- Routing (`react-router-dom`) : routes `/` (carte), `/report` (signalement), `/plan`
-  (planification de trajet) — pages placeholder pour les tâches #1-3 de la Phase 2
-- Nav shell (`Layout.tsx`) avec sélecteur de langue
-- TanStack Query : instance partagée (`query-client.ts`), pas encore de requête branchée
-- Validation Zod des variables d'environnement `VITE_*` (`shared/config/env.ts`), même pattern que
-  le backend
-- Alias d'import `@/` (cohérent entre `vite.config.ts` et `tsconfig.app.json`)
 - Formulaire de signalement d'incident (`ReportIncidentPage.tsx`) : géolocalisation navigateur ou
   sélection manuelle sur carte, type/sens/état de la voie, photo compressée côté client
   (redimensionnement + réencodage JPEG via Canvas), soumission vers `POST /incidents`
@@ -56,6 +41,26 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     POST /incidents/{id}/confirmations, mise en évidence visuelle au-delà de 24h sans résolution
     (cahier des charges §4.4)
 - `format-incident-age.ts` : ajout de `isIncidentStale` (seuil d'alerte 24h)
+- Formulaire de planification de trajet (`PlanTripPage.tsx`) : champ nom du trajet obligatoire,
+  suit le changement cassant backend sur `POST /itineraries` (issue backend #<numéro>)
+- `shared/api/itineraries.ts` : ajout de `renameItinerary` (client pour `PATCH /itineraries/{id}`,
+  pas encore branché à une UI)
+
+### Ajouté
+
+- Scaffold initial : Vite + React 19 + TypeScript
+- `vite-plugin-pwa` configuré (manifest, cache-first sur les tuiles MapTiler, `devOptions` activé
+  pour inspection du service worker en développement)
+- Tailwind CSS v4 (via `@tailwindcss/vite`, pas de fichier de config séparé)
+- Internationalisation (`react-i18next`) : anglais par défaut, bascule français, namespaces
+  `common`/`incidents`/`itinerary` alignés sur les modules backend
+- Routing (`react-router-dom`) : routes `/` (carte), `/report` (signalement), `/plan`
+  (planification de trajet) — pages placeholder pour les tâches #1-3 de la Phase 2
+- Nav shell (`Layout.tsx`) avec sélecteur de langue
+- TanStack Query : instance partagée (`query-client.ts`), pas encore de requête branchée
+- Validation Zod des variables d'environnement `VITE_*` (`shared/config/env.ts`), même pattern que
+  le backend
+- Alias d'import `@/` (cohérent entre `vite.config.ts` et `tsconfig.app.json`)
 
 ### Vérifié
 
