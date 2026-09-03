@@ -4,18 +4,12 @@ import { useTranslation } from "react-i18next";
 import { MapView, type IncidentMarkerData } from "@/shared/components/MapView";
 import { IncidentDetailCard } from "@/shared/components/IncidentDetailCard";
 import { fetchActiveIncidents } from "@/shared/api/incidents";
+import { fetchRouteAxes } from "@/shared/api/axes";
 import { ROAD_STATUS_COLORS } from "@/shared/lib/incident-colors";
-
-// Fixed set for the MVP pilot (cf. cahier des charges §2.1 — N1/N3/N4 are the
-// only Routes Nationales in scope). No GET /route-axes endpoint exists to
-// fetch this dynamically; revisit if the axis list needs to grow post-pilot.
-const AXES = ["N1", "N3", "N4"] as const;
 
 const filterButtonClass = (active: boolean) =>
   `rounded px-3 py-1 text-sm ${active ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`;
 
-// Phase 2 task #2. GET /incidents already returns axisCode/incidentTypeLabel/
-// pkStart/pkEnd (cf. backend issues #7-#8) — no client-side id lookup needed.
 export function MapPage() {
   const { t } = useTranslation("incidents");
   const queryClient = useQueryClient();
@@ -23,6 +17,12 @@ export function MapPage() {
   const [selectedIncidentId, setSelectedIncidentId] = useState<string | null>(
     null,
   );
+
+  const { data: axes } = useQuery({
+    queryKey: ["route-axes"],
+    queryFn: fetchRouteAxes,
+    staleTime: Infinity, // the axis list changes rarely (only on re-import) — no need to refetch often
+  });
 
   const {
     data: incidents,
@@ -56,13 +56,13 @@ export function MapPage() {
         >
           {t("filters.all_axes")}
         </button>
-        {AXES.map((axis) => (
+        {(axes ?? []).map((axis) => (
           <button
-            key={axis}
-            onClick={() => setAxisFilter(axis)}
-            className={filterButtonClass(axisFilter === axis)}
+            key={axis.id}
+            onClick={() => setAxisFilter(axis.code)}
+            className={filterButtonClass(axisFilter === axis.code)}
           >
-            {axis}
+            {axis.code}
           </button>
         ))}
         {isLoading && (

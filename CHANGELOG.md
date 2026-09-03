@@ -66,10 +66,11 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 - Input téléphone international (`react-phone-number-input`), Cameroun pré-sélectionné, format
   E.164 — remplace le champ texte simple
 
-### Vérifié
+### Corrigé
 
-- `tsc -b` (mode strict) : aucune erreur
-- `npm run build` : build de production réussi, service worker et manifest PWA générés
+- `MapPage.tsx` : le filtre d'axes charge désormais dynamiquement la liste depuis
+  `GET /route-axes` (backend #17) au lieu d'une liste codée en dur (`["N1","N3","N4"]`,
+  obsolète depuis l'import OSM couvrant N1-N21)
 
 ### Connu — à faire
 
